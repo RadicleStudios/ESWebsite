@@ -1,60 +1,54 @@
 ---
 ---
-$background-color: #f7f7f7;
-$key-color: #4e42bd;
+$key-color: #524fa1;
 $color: darken(desaturate($key-color, 100%), 7%);
+$light-color: lighten($color, 30%);
+$background-color: #f7f7f7;
+
+$padding: 10px;
+$gutter: 40px;
+$site-width: 640px + $padding * 2;
+$content-width: $site-width - $padding * 2;
 
 //
 // Typography
 //
+.TextPiano      { font-size: 14px; line-height: 17px; }
+.TextMezzoPiano { font-size: 20px; line-height: 26px; }
+.TextMezzoForte { font-size: 25px; line-height: 30px; }
+.TextForte      { font-size: 36px; line-height: 42px; }
+.TextFortissimo { font-size: 48px; line-height: 68px; font-weight: 100; }
+body { font-family: "Lato", sans-serif; color: $color; }
+em, i { font-style: italic; }
+strong, b { font-weight: bolder; }
+a { color: $key-color; text-decoration: none; }
 
-html { font-size: 10px; }
+//
+// Layout
+//
+.FullColumn { width: 100%; }
+.LeftColumn { width: $content-width / 2 - $gutter / 2; padding-right: $gutter / 2; float: left; }
+.RightColumn { width: $content-width / 2 - $gutter / 2; padding-left: $gutter / 2; float: right; clear: right; }
+.Clear { content: ""; display: block; clear: both; }
 body {
-  font-family: 'Lato', sans-serif;
-  color: $color;
-  background-color: $background-color;
+    width: $content-width;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $padding;
+    padding-right: $padding;
 }
-p { font-family: 'Lato', sans-serif; }
-em, i { font-style: italic }
-b, strong { font-weight: bolder }
-a { color: $key-color; text-decoration: none }
-h1 { font-size: 4.6rem; line-height: 5.2rem; margin-top: 6.6rem }
-h2 { font-size: 3.2rem; line-height: 3.8rem; margin-top: 4.4rem }
-h3 { font-size: 2.0rem; line-height: 2.6rem; margin-top: 2.2rem; font-weight: bolder }
-p {  font-size: 2.3rem; line-height: 2.9rem; margin-top: 2.3rem }
-header {
-  background-color: $background-color;
-}
-main {
-  background-color: $background-color;
-}
-footer {
-  background-color: darken($background-color, 5%);
-  height: 100%;
-}
+body > header { margin-top: 80px; margin-bottom: 80px; }
+body > header > h1 { text-align: center; }
+body > header > p { text-align: center; @extend .TextMezzoPiano; }
+body > footer { padding-top: 80px; padding-bottom: 40px; }
+body > main > section { margin-top: 40px; }
+body > main > section:after { @extend .Clear; }
+body > main > section > h1 { @extend .LeftColumn; @extend .TextForte; text-align: right; }
+body > main > section > p { @extend .RightColumn; @extend .TextMezzoForte; }
+body > main > section > p + p { margin-top: 10px; }
 
-.RestrainedContainer { // (Ie restrained *horizontally*.)
-  max-width: 980px;
-  padding-left: 40px;
-  padding-right: 40px;
-}
-
-.UnrestrainedContainer { // (Ie unrestrained *horizontally*.)
-  max-width: 100%;
-  padding-left: 40px;
-  padding-right: 40px;
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
-  white-space: nowrap;
-  font-size: 0; /* To remove gaps. */
-  background-color: darken($background-color, 30%);
-}
-
-.RoomAbove {
-  margin-top: 60px;
-}
-
-.RoomBelow {
-  margin-bottom: 60px;
-}
+//
+// Misc
+//
+body { background-color: $background-color }
 
