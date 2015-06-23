@@ -46,6 +46,7 @@ body > main > section:after { @extend .Clear; }
 body > main > section > h1 { @extend .LeftColumn; @extend .TextForte; text-align: right; }
 body > main > section > p { @extend .RightColumn; @extend .TextMezzoForte; }
 body > main > section > p + p { margin-top: 10px; }
+body > main > section > table { @extend .RightColumn; @extend .TextMezzoPiano; }
 
 //
 // Misc
