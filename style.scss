@@ -38,8 +38,8 @@ body {
     padding-right: $padding;
 }
 body > header { margin-top: 80px; margin-bottom: 80px; }
-body > header > h1 { text-align: center; }
-body > header > p { text-align: center; @extend .TextMezzoPiano; }
+body > header > hgroup > h1 { text-align: center; }
+body > header > hgroup > h2 { text-align: center; @extend .TextMezzoPiano; margin-top: 20px; }
 body > footer { padding-top: 80px; padding-bottom: 40px; }
 body > main > section { margin-top: 40px; }
 body > main > section:after { @extend .Clear; }
