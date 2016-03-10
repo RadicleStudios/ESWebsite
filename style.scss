@@ -1,55 +1,80 @@
 ---
 ---
-$key-color: #524fa1;
-$color: darken(desaturate($key-color, 100%), 7%);
-$light-color: lighten($color, 30%);
 $background-color: #f7f7f7;
+$key-color: #3f3f3f;
+$color: lighten($key-color, 20%);
 
-$padding: 10px;
-$gutter: 40px;
-$site-width: 640px + $padding * 2;
-$content-width: $site-width - $padding * 2;
+html { -webkit-text-size-adjust: 100%; } // TODO: What is this for exactly? I don't recall.
 
-//
-// Typography
-//
-.TextPiano      { font-size: 14px; line-height: 17px; }
-.TextMezzoPiano { font-size: 20px; line-height: 26px; }
-.TextMezzoForte { font-size: 25px; line-height: 30px; }
-.TextForte      { font-size: 36px; line-height: 42px; }
-.TextFortissimo { font-size: 48px; line-height: 68px; font-weight: 100; }
-body { font-family: "Lato", sans-serif; color: $color; }
+body {
+    background-color: $background-color;
+    color: $color;
+    font-family: sans-serif;
+    line-height: 24px;
+    margin: 0 auto;
+    padding: 20px;
+    width: 540px; // TODO: Does this include the padding?
+    header, footer { text-align: center; }
+}
+
 em, i { font-style: italic; }
 strong, b { font-weight: bolder; }
 a { color: $key-color; text-decoration: none; }
 
+p, td { font-size: 19px; .sc { font-size: 14px; text-transform: uppercase; } }
+h3 { font-size: 13px; text-transform: uppercase; }
+h2 { font-size: 18px; text-align: center; margin-top: 24px; margin-bottom: 24px; font-style: italic; .sc { font-size: 16px; text-transform: uppercase; } }
+h1 { font-size: 20px; font-weight: bold; margin: 24px 0; }
+
 //
 // Layout
 //
-.FullColumn { width: 100%; }
-.LeftColumn { width: $content-width / 2 - $gutter / 2; padding-right: $gutter / 2; float: left; }
-.RightColumn { width: $content-width / 2 - $gutter / 2; padding-left: $gutter / 2; float: right; clear: right; }
-.Clear { content: ""; display: block; clear: both; }
-body {
-    width: $content-width;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: $padding;
-    padding-right: $padding;
+$site-padding: 10px; // Ie, to the left and right of the body.
+$site-width: 960px + $site-padding * 2; // The 'scroll width' of the site.
+$content-inset: 240px;
+$content-inset-gutter: 22px;
+section {
+    margin: 96px 0;
 }
-body > header { margin-top: 80px; margin-bottom: 80px; }
-body > header > hgroup > h1 { text-align: center; }
-body > header > hgroup > h2 { text-align: center; @extend .TextMezzoPiano; margin-top: 20px; }
-body > footer { padding-top: 80px; padding-bottom: 40px; }
-body > main > section { margin-top: 40px; }
-body > main > section:after { @extend .Clear; }
-body > main > section > h1 { @extend .LeftColumn; @extend .TextForte; text-align: right; }
-body > main > section > p { @extend .RightColumn; @extend .TextMezzoForte; }
-body > main > section > p + p { margin-top: 10px; }
-body > main > section > table { @extend .RightColumn; @extend .TextMezzoPiano; }
+
+//
+// Typography
+//
+.TextHeadline1  { font-size: 36px; line-height: 44px; font-weight: lighter; }
+.TextHeadline2  { font-size: 22px; line-height: 22px; }
+.TextBody       { font-size: 18px; line-height: 22px; }
+.TextFootnote   { font-size: 14px; line-height: 22px; }
+
+h1 { @extend .TextHeadline1; }
+h2 { @extend .TextHeadline2; }
+//p { @extend .TextBody; }
+footer p { @extend .TextFootnote; }
+
 
 //
 // Misc
 //
-body { background-color: $background-color }
-
+.GalleryContainer {
+    background-color: darken($background-color, 3%);
+    line-height: 0;
+    font-size: 0;
+    .ImageView {
+        visibility: hidden;
+        position: absolute;
+        width: 540px;
+        height: 540px;
+    }
+}
+.ColumnContainer {
+    font-size: 0;
+}
+.LeftColumn {
+    display: inline-block;
+    width: 270px;
+    vertical-align: top;
+}
+.RightColumn {
+    display: inline-block;
+    width: 270px;
+    vertical-align: top;
+}

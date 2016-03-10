@@ -1,11 +1,38 @@
 ---
 ---
-
 // The purpose is to 'load' image elements contained within horizontally-scrolling container DIVs; where 'loading' entails the following: as soon as the images are scrolled into view, their `src` attribute is replaced by their `data-src` attribute, with the intended effect that the quick-loading `src` image assets be replaced by the slower-loading assets referred by `data-src`, but only when needed, ie when scrolled into view.
+
+"use strict";
 
 window.onload = function () {
 
-  alert("Yo!");
+  // Loop through the gallery containers.
+  var galleryContainerNodeList = document.querySelectorAll('.GalleryContainer'); // TODO: Replace with something that is more widely supported.
+  var galleryContainerElements = Array.prototype.slice.call(galleryContainerNodeList); // Get a true Array.
+  galleryContainerElements.forEach(function(containerElement) {
+
+    // Get the image view element.
+    var imageViewElement = containerElement.querySelector('.ImageView');
+    // TODO: Do something if there is no image view element.
+    imageViewElement.onclick = function() {
+      imageViewElement.style.visibility = "hidden";
+      imageViewElement.src = null;
+    }
+
+    // Loop through the contained images (the thumbnails). NB: The class must be `Thumbnail`.
+    var galleryThumbnailNodeList = containerElement.querySelectorAll('img.Thumbnail'); // TODO: Replace with something that is more widely supported.
+    var galleryThumbnailImageElements = Array.prototype.slice.call(galleryThumbnailNodeList); // Get a true Array.
+    galleryThumbnailImageElements.forEach(function(thumbnailElement) {
+
+      // Install the onclick action.
+      thumbnailElement.onclick = function() {
+        console.log(imageViewElement.src);
+        imageViewElement.src = thumbnailElement.getAttribute('data-src');
+        imageViewElement.style.visibility = "visible";
+      }
+    });
+
+  });
 
     // // Loop through the horizontally-scrolling containers.
     // var containerNodeList = document.querySelectorAll('.ManagedImageContainer');
