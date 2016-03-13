@@ -38,8 +38,9 @@ body > header {
     border-bottom: 1px solid #afafaf;
     h1 { line-height: 0; margin: 0; }
     nav {
-        a { line-height: 24px; font-size: 15px; text-transform: uppercase; }
-        a + a { margin-left: 12px; }
+        line-height: 23px; font-size: 15px; text-transform: uppercase;
+        a, #selected { margin: 0 6px; }
+        #selected { color: $color; border-bottom: 4px solid #b7b7b7; }
     }
 }
 

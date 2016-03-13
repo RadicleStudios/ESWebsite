@@ -1,0 +1,59 @@
+---
+---
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Elizabeth Schindler</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="/gallery.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <h1><a href="/"><img width="540px" src="/assets/logo.svg" alt="Elizabeth Schindler"></a></h1>
+      <!-- <p>Career, casual, and cruise-wear<br>fashions for the discerning woman<br>that appreciates personalized service</p> -->
+      <nav>
+        {% if page.url == "/index.html" %}
+          <span id="selected">Home</span>            
+        {% else %}
+          <a href="/">Home</a>
+        {% endif %}
+      
+        {% if page.url == "/collections.html" %}
+          <span id="selected">Collections</span>
+        {% else %}
+          <a href="/collections.html">Collections</a>
+        {% endif %}
+      
+        {% if page.url == "/locations.html" %}
+          <span id="selected">Locations</span>
+        {% else %}
+          <a href="/locations.html">Locations</a>
+        {% endif %}
+      
+        {% if page.url == "/hours.html" %}
+          <span id="selected">Hours</span>
+        {% else %}
+          <a href="/hours.html">Hours</a>
+        {% endif %}
+      
+        {% if page.url == "/contact.html" %}
+          <span id="selected">Contact</span>
+        {% else %}
+          <a href="/contact.html">Contact</a>
+        {% endif %}
+      </nav>
+    </header>
+
+    <main>
+      {{ content }}
+    </main>
+
+    <footer>
+      <p>&copy; Elizabeth Schindler Couture, Inc. 1912 Avenue Rd, Toronto ON M5M 4A1</p>
+    </footer>
+  </body>
+</html>
