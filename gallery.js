@@ -12,57 +12,90 @@ window.onload = function () {
   // Loop through the gallery containers.
   var galleryContainerNodeList = document.querySelectorAll('.gallery-container'); // TODO: Replace with something that is more widely supported.
   var galleryContainerElements = Array.prototype.slice.call(galleryContainerNodeList); // Get a true Array.
-  galleryContainerElements.forEach(function(containerElement) {
+  galleryContainerElements.forEach(function(container) {
+
+    // Configure the container.
+    container.style.position = "relative"; // In order to use absolute positioning.
 
     // Loop through the contained images (i.e. the thumbnails).
     // NB: The class must be `thumbnail`.
-    var galleryThumbnailNodeList = containerElement.querySelectorAll('img.thumbnail'); // TODO: Replace with something that is more widely supported.
+    var galleryThumbnailNodeList = container.querySelectorAll('img.thumbnail'); // TODO: Replace with something that is more widely supported.
     var galleryThumbnailImageElements = Array.prototype.slice.call(galleryThumbnailNodeList); // Get a true Array.
-    galleryThumbnailImageElements.forEach(function(thumbnailElement) {
+    galleryThumbnailImageElements.forEach(function(thumbnail) {
 
       // Install the onclick action.
-      thumbnailElement.onclick = function () {
+      thumbnail.onclick = function () {
 
-        // Create the 'image view' element.
-        var imageViewElement = document.createElement("img"); // Create a new image element.
-        imageViewElement.src = thumbnailElement.getAttribute('data-src'); // Set its source to be the value of the `data-src` attribute.
+        var thumbnailRect = thumbnail.getBoundingClientRect();
+        var thumbnailWidth = thumbnailRect.right - thumbnailRect.left;
+        var thumbnailHeight = thumbnailRect.bottom - thumbnailRect.top;
+        var thumbnailTop = thumbnailRect.top - container.getBoundingClientRect().top;
+        var thumbnailLeft = thumbnailRect.left - container.getBoundingClientRect().left;
 
-        // Produce an overlay.
-        var overlay = document.createElement("div");
-        overlay.style.cssText = "width: 100%; height: 100%; position: fixed; top: 0; left: 0; z-index: 1; opacity: 0.6; background-color: #000;"
-        overlay.hidden = true;
-        overlay.onclick = function () {
-          imageViewElement.parentNode.removeChild(imageViewElement);
-          overlay.hidden = true;
+        var dismissingFunction = function () {
+
+          // Make the image unclickable.
+          image.style.pointerEvents = "none";
+
+          // Animate the opacity (removing the temporary elements on completion).
+          TweenLite.to(overlay,      0.2, {opacity:0, onComplete:function(){ overlay.parentNode.removeChild(overlay) }});
+          TweenLite.to(imageBacking, 1.0, {opacity:0, onComplete:function(){ imageBacking.parentNode.removeChild(imageBacking) }});
+          TweenLite.to(image,        0.2, {opacity:0, onComplete:function(){ image.parentNode.removeChild(image) }});
+
+          // Animate the dimensions.
+          var vars = {width:thumbnailWidth, height:thumbnailHeight, left:thumbnailLeft, top:thumbnailTop};
+          TweenLite.to(imageBacking, 0.4, vars);
+          TweenLite.to(image,        0.4, vars);
         }
-        document.body.insertBefore(overlay, document.body.firstChild);
 
-        // Reuse the overlay's onclick on the image view.
-        imageViewElement.onclick = overlay.onclick;
+        // Produce a full screen overlay.
+        var overlay = document.createElement("div");
+        overlay.style.cssText = "position:fixed; background-color:#000; opacity:0";
+        overlay.style.width = "100%"; overlay.style.height = "100%";
+        overlay.style.left = 0; overlay.style.top = 0;
+        overlay.onclick = dismissingFunction;
+        document.body.appendChild(overlay);
 
-        // Continue once the image has loaded...
-        imageViewElement.onload = function () {
+        // Produce the image view's backing.
+        var imageBacking = document.createElement("div");
+        imageBacking.style.cssText = "position:absolute; background-color:#000; opacity:0.5";
+        imageBacking.style.pointerEvents = "none";
+        imageBacking.style.width = thumbnailWidth + "px";
+        imageBacking.style.height = thumbnailHeight + "px";
+        imageBacking.style.left = thumbnailLeft + "px";
+        imageBacking.style.top = thumbnailTop + "px";
+        container.appendChild(imageBacking);
 
-          // Calculate the image view's position.
-          var thumbnailHeight = thumbnailElement.getBoundingClientRect().bottom - thumbnailElement.getBoundingClientRect().top;
-          var thumbnailVerticalOffset = thumbnailElement.getBoundingClientRect().top - containerElement.getBoundingClientRect().top;
-          var imageHeight = imageViewElement.naturalHeight;
-          var imageVerticalOffset = thumbnailVerticalOffset - (imageHeight - thumbnailHeight) / 2;
+        // Produce the image view.
+        var image = document.createElement("img"); // Create a new image element.
+        image.style.cssText = "position:absolute; opacity:0; z-index:1";
+        image.src = thumbnail.getAttribute('data-src');
+        image.style.width = thumbnailWidth + "px";
+        image.style.height = thumbnailHeight + "px";
+        image.style.left = thumbnailLeft + "px";
+        image.style.top = thumbnailTop + "px";
+        image.onclick = dismissingFunction;
+        container.appendChild(image);
 
-          // Sanitize it.
-          var containerHeight = containerElement.getBoundingClientRect().bottom - containerElement.getBoundingClientRect().top;
-          if (imageVerticalOffset + imageHeight > containerHeight) imageVerticalOffset = containerHeight - imageHeight;
-          if (imageVerticalOffset < 0) imageVerticalOffset = 0;
-          
-          // Insert the image view into the DOM and position it.
-          containerElement.insertBefore(imageViewElement, containerElement.firstChild); // Insert it as the first child of the container.
-          imageViewElement.style.zIndex = 2;
-          imageViewElement.style.position = "absolute";
-          containerElement.style.position = "relative";
-          imageViewElement.style.top = imageVerticalOffset + "px";
+        // Continue once the image has loaded:
+        image.onload = function () {
 
-          // Activate the overlay.
-          overlay.hidden = false;
+          // Produce the image view's dimensions and position.
+          var imageWidth = image.naturalWidth;  var imageHeight = image.naturalHeight;
+          var imageLeft = 0;  var imageTop = thumbnailTop - (imageHeight - thumbnailHeight) / 2;
+          var containerHeight = container.getBoundingClientRect().bottom - container.getBoundingClientRect().top;
+          if (imageTop + imageHeight > containerHeight) imageTop = containerHeight - imageHeight;
+          if (imageTop < 0) imageTop = 0;
+
+          // Animate the opacity.
+          TweenLite.to(overlay,      0.2, {opacity:0.6});
+          TweenLite.to(imageBacking, 0.2, {opacity:0.8});
+          TweenLite.to(image,        0.2, {opacity:1.0});
+
+          // Animate the dimensions.
+          var vars = {width:imageWidth, height:imageHeight, left:imageLeft, top:imageTop}
+          TweenLite.to(imageBacking, 0.2, vars);
+          TweenLite.to(image,        0.2, vars);
         }
 
       }

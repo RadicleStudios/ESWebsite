@@ -8,13 +8,14 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="/gsap--tween-lite.js"></script> <!-- TODO: Move this to be within `gallery.js`. -->
+    <script type="text/javascript" src="/gsap--css-plugin.js"></script> <!-- TODO: Move this to be within `gallery.js`. -->
     <script type="text/javascript" src="/gallery.js"></script>
   </head>
 
   <body>
     <header>
       <h1><a href="/"><img width="540px" src="/assets/logo.svg" alt="Elizabeth Schindler"></a></h1>
-      <!-- <p>Career, casual, and cruise-wear<br>fashions for the discerning woman<br>that appreciates personalized service</p> -->
       <nav>
         {% if page.url == "/index.html" %}
           <span id="selected">Home</span>            
@@ -53,7 +54,12 @@
     </main>
 
     <footer>
-      <p>&copy; Elizabeth Schindler Couture, Inc. 1912 Avenue Rd, Toronto ON M5M 4A1</p>
+      <!-- <p>&copy; Elizabeth Schindler Couture, Inc. 1912 Avenue Rd, Toronto ON M5M 4A1</p> -->
+      <p>
+        &copy; Elizabeth Schindler Couture, Inc., 1912 Avenue Rd, Toronto ON, M5M 4A1.<br>
+        Site by <a href="http://radicle.io" target="_blank">Radicle Inc.</a>
+        Site feedback is welcomed; please email <a href="mailto:raphael@radicle.io">raphael@radicle.io</a>.
+      </p>
     </footer>
   </body>
 </html>

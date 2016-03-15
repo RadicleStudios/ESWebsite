@@ -26,13 +26,12 @@ em, i { font-style: italic; }
 strong, b { font-weight: bolder; }
 a { color: $key-color; text-decoration: none; }
 
-p  { line-height: 24px; font-size: 16px; padding: 24px 0 0 0;   .sc { font-size: 14px; text-transform: uppercase; } }
-p:first-child { padding: 0; }
+p  { line-height: 24px; font-size: 16px; margin: 24px 24px 0 24px;   .sc { font-size: 14px; text-transform: uppercase; } }
 td { line-height: 24px; font-size: 16px;                        .sc { font-size: 14px; text-transform: uppercase; } }
 li { line-height: 24px; font-size: 16px; margin: 0;             .sc { font-size: 14px; text-transform: uppercase; } }
 h1 { line-height: 24px; font-size: 17px; margin: 72px 0 24px 0; .sc { font-size: 15px; text-transform: uppercase; } }
-h2 { line-height: 24px; font-size: 15px; padding: 24px 0 0 0; text-transform: uppercase; font-weight: normal; text-align: center; }
-h3 { line-height: 24px; font-size: 18px; font-family: sans-serif; font-weight: lighter; margin-top: 24px; }
+h2 { line-height: 24px; font-size: 15px; margin: 24px 0 0 0; text-transform: uppercase; font-weight: normal; text-align: center; }
+h3 { line-height: 24px; font-size: 18px; margin: 24px 0 0 0; font-weight: lighter; }
 
 body > header {
     padding: 48px 0 0 0;
@@ -47,12 +46,14 @@ body > header {
 }
 
 body > main {
-    padding: 24px 0;
+    margin: 24px 0;
 }
 
 body > footer {
+    margin: 0 0 18px 0;
+    padding: 0 18px;
     border-top: 1px solid #afafaf;
-    p { padding: 0; }
+    p  { line-height: 18px; font-size: 12px; margin: 18px 0 0 0; }
 }
 
 //
@@ -64,7 +65,7 @@ body > footer {
 .centering { text-align: center; }
 .centered { margin-left: auto; margin-right: auto; }
 .one-line-above { padding-top: 24px; }
-
+.no-margin-top { margin-top: 0; }
 
 .ColumnContainer {
     font-size: 0;
