@@ -51,6 +51,7 @@ window.onload = function () {
         // Produce a full screen overlay.
         var overlay = document.createElement("div");
         overlay.style.cssText = "position:fixed; background-color:#000; opacity:0";
+        overlay.style.pointerEvents = "none";
         overlay.style.width = "100%"; overlay.style.height = "100%";
         overlay.style.left = 0; overlay.style.top = 0;
         overlay.onclick = dismissingFunction;
@@ -80,6 +81,9 @@ window.onload = function () {
         // Continue once the image has loaded:
         image.onload = function () {
 
+          // Make the overlay clickable.
+          overlay.style.pointerEvents = "";
+
           // Produce the image view's dimensions and position.
           var imageWidth = image.naturalWidth;  var imageHeight = image.naturalHeight;
           var imageLeft = 0;  var imageTop = thumbnailTop - (imageHeight - thumbnailHeight) / 2;
@@ -93,9 +97,9 @@ window.onload = function () {
           TweenLite.to(image,        0.2, {opacity:1.0});
 
           // Animate the dimensions.
-          var vars = {width:imageWidth, height:imageHeight, left:imageLeft, top:imageTop}
-          TweenLite.to(imageBacking, 0.2, vars);
-          TweenLite.to(image,        0.2, vars);
+          var onImageGrow
+          TweenLite.to(imageBacking, 0.2, {width:imageWidth, height:imageHeight, left:imageLeft, top:imageTop});
+          TweenLite.to(image,        0.2, {width:imageWidth, height:imageHeight, left:imageLeft, top:imageTop});
         }
 
       }
