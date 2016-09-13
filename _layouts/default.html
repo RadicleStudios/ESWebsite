@@ -17,7 +17,7 @@
     <header>
       <h1><a href="/"><img width="540px" src="/assets/logo.svg" alt="Elizabeth Schindler"></a></h1>
       <nav>
-        {% if page.url == "/index.html" %}
+        {% if page.url == "/index.html" or page.url == "/" %}
           <span id="selected">Home</span>            
         {% else %}
           <a href="/">Home</a>
