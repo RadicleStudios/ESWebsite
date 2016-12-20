@@ -15,9 +15,9 @@
 
   <body>
     <header>
-      <h1><a href="/"><img width="540px" src="/assets/logo.svg" alt="Elizabeth Schindler"></a></h1>
+      <h1 style="margin-bottom: 24px"><a href="/"><img style="width: 360px" src="/assets/logo.svg" alt="Elizabeth Schindler"></a></h1>
       <nav>
-        {% if page.url == "/index.html" or page.url == "/" %}
+        {% if page.url == "/index.html" %}
           <span id="selected">Home</span>            
         {% else %}
           <a href="/">Home</a>
@@ -30,9 +30,9 @@
         {% endif %}
       
         {% if page.url == "/locations.html" %}
-          <span id="selected">Locations</span>
+          <span id="selected">Location</span>
         {% else %}
-          <a href="/locations.html">Locations</a>
+          <a href="/locations.html">Location</a>
         {% endif %}
       
         {% if page.url == "/hours.html" %}
@@ -53,5 +53,13 @@
       {{ content }}
     </main>
 
+    <footer>
+      <!-- <p>&copy; Elizabeth Schindler Couture, Inc. 1912 Avenue Rd, Toronto ON M5M 4A1</p> -->
+      <p>
+        &copy; Elizabeth Schindler Couture, Inc., 1912 Avenue Rd, Toronto ON, M5M 4A1.<br>
+        Site by <a href="http://radicle.io" target="_blank">Radicle Inc.</a>
+        Site feedback is welcomed; please email <a href="mailto:raphael@radicle.io">raphael@radicle.io</a>.
+      </p>
+    </footer>
   </body>
 </html>
