@@ -7,13 +7,17 @@
 
 /* Layout */
 
-body { width: 540px; border: 1px; margin: 23px auto; }
+body { width: 540px; border: 1px solid rgba(0, 0, 0, 0); margin: 23px auto; }
+body > header { padding: 72px 0 24px 0; }
+main { padding: 24px 0; }
+
+/*main { margin: 24px 0; }*/
 
 /* Colour */
 
-html { background-color: #f3f3f3; background: center url("/assets/damask-pattern.png"); }
-body { background-color: #f3f3f3; color: #727272; border-color: #bfbfbf; box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16); }
-main { box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16); }
+html { background-color: #f3f3f3; background: center / 64px url("/assets/damask-pattern-b.png"); }
+body { background-color: #efefef; color: #727272; border-color: rgba(63, 63, 63, 0.5); box-shadow: 0 2px 24px rgba(0, 0, 0, 0.5); }
+main { background-color: #f7f7f7; box-shadow: 0 2px 24px rgba(0, 0, 0, 0.5); }
 
 /* Typography */
 
@@ -78,9 +82,8 @@ h3 {
   font-weight: lighter; }
 
 body > header {
-  padding: 48px 0 0 0;
   text-align: center;
-  border-bottom: 1px solid #afafaf; }
+  /*border-bottom: 1px solid #afafaf;*/ }
   body > header h1 {
     line-height: 0;
     margin: 0; }
@@ -94,13 +97,10 @@ body > header {
       color: #727272;
       border-bottom: 4px solid #b7b7b7; }
 
-body > main {
-  margin: 24px 0; }
-
 body > footer {
   margin: 0 0 18px 0;
   padding: 0 18px;
-  border-top: 1px solid #afafaf; }
+  /*border-top: 1px solid #afafaf;*/ }
   body > footer p {
     line-height: 18px;
     font-size: 12px;
