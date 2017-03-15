@@ -7,7 +7,7 @@ $color: lighten($key-color, 20%);
 html {
     -webkit-text-size-adjust: 100%; // TODO: What is this for exactly? I don't recall.
     background-color: #f3f3f3;
-    background: url("/assets/damask-pattern.png");
+    background: center url("/assets/damask-pattern.png");
 } 
 
 body {
@@ -21,6 +21,8 @@ body {
     width: 540px;
     border: 1px solid #bfbfbf;
 }
+
+body { box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16); }
 
 em, i { font-style: italic; }
 strong, b { font-weight: bolder; }
