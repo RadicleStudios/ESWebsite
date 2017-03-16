@@ -39,6 +39,8 @@ html { -webkit-text-size-adjust: 100%; /* What is this for?---I forgot. */ }
 .gallery-container { margin-left: -24px; margin-right: -24px; text-align: center; }
 .gallery-container .thumbnail { display: inline-block; width: 92px; opacity: 0.8; margin: 4px; }
 
+iframe[special-map] { margin-left: -25px; margin-right: -24px; }
+[centre-aligned] { text-align: center; }
 
 
 a {
