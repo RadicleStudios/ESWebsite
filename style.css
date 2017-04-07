@@ -57,6 +57,10 @@ iframe[special-map] { margin-left: -25px; margin-right: -24px; }
 [without-top-margin] { margin-top: 0; }
 [without-vertical-margins] { margin-top: 0; margin-bottom: 0; }
 [horizontally-centered] { margin-left: auto; margin-right: auto; }
+img[logo] { width: 360px; }
+img[feature] { width: 540px; margin: -24px -24px 0 -24px; }
+
+
 
 
 a {
@@ -84,28 +88,6 @@ li {
   li .sc {
     font-size: 14px;
     text-transform: uppercase; }
-
-/*h1 {
-  line-height: 24px;
-  font-size: 17px;
-  margin: 72px 0 24px 0; }
-  h1 .sc {
-    font-size: 15px;
-    text-transform: uppercase; }*/
-
-/*h2 {
-  line-height: 24px;
-  font-size: 15px;
-  margin: 24px 0 0 0;
-  text-transform: uppercase;
-  font-weight: normal;
-  text-align: center; }*/
-
-/*h3 {
-  line-height: 24px;
-  font-size: 18px;
-  margin: 24px 0 0 0;
-  font-weight: lighter; }*/
 
 body > header {
   text-align: center;
