@@ -10,7 +10,7 @@ function sleep (duration) {
 window.onload = function () {
 
   // Loop through the gallery containers.
-  var galleryContainerNodeList = document.querySelectorAll('.gallery-container'); // TODO: Replace with something that is more widely supported.
+  var galleryContainerNodeList = document.querySelectorAll('[gallery]');
   var galleryContainerElements = Array.prototype.slice.call(galleryContainerNodeList); // Get a true Array.
   galleryContainerElements.forEach(function(container) {
 
@@ -19,7 +19,7 @@ window.onload = function () {
 
     // Loop through the contained images (i.e. the thumbnails).
     // NB: The class must be `thumbnail`.
-    var galleryThumbnailNodeList = container.querySelectorAll('img.thumbnail'); // TODO: Replace with something that is more widely supported.
+    var galleryThumbnailNodeList = container.querySelectorAll('img[thumbnail]');
     var galleryThumbnailImageElements = Array.prototype.slice.call(galleryThumbnailNodeList); // Get a true Array.
     galleryThumbnailImageElements.forEach(function(thumbnail) {
 
