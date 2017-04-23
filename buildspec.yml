@@ -1,0 +1,12 @@
+version: 0.1
+
+phases:
+  install:
+    commands:
+      - gem install jekyll kramdown
+  build:
+    commands:
+      - echo "**** Building Jekyll website ****"
+      - jekyll build
+      - echo "**** Deploying to AWS S3 ****"
+      - aws s3 sync _site/ s3://elizabethschindler.com --region us-east-1 --delete
