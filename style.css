@@ -1,23 +1,18 @@
-/** Layout **/
+/**** Layout ****/
 
 body {
-  min-width: 240px; max-width: 540px;
-  margin: 0 auto;
+  min-width: 240px; max-width: 542px;
+  margin: 24px auto;
   box-sizing: border-box; }
 
 .excavation {
-  background: url(/assets/shadow-top.png) top repeat-x,
-              url(/assets/shadow-right.png) right repeat-y,
-              url(/assets/shadow-bottom.png) bottom repeat-x,
-              url(/assets/shadow-left.png) left repeat-y #F7F7F7; }
+  border: 1px solid transparent; }
 
 .content {
   padding: 1px 0;
-  background-color: white;
-  box-shadow: 0 0 32px rgba(0, 0, 0, 0.5), 0 0 4px 2px rgba(0, 0, 0, 0.2); }
+  border-top: 1px solid transparent; border-bottom: 1px solid transparent; }
 
-body footer {
-  padding: 18px 18px 18px 18px; }
+body footer { padding: 18px 18px 18px 18px; }
 
 /** The root-level tabs **/
 
@@ -59,19 +54,12 @@ body footer {
 
 /** The main tabs **/
 
-.tab-row {
-  padding-top: 32px;
-  margin-top: -32px;
-  margin-left: -12px; margin-right: -12px;
-  overflow: hidden; }
-
 .tab-row .tab {
   display: inline-block;
-  padding: 0 4px 0 4px; }
+  margin: 0 4px; }
 
-.tab-row .raised{
-  background-color: white;
-  box-shadow: 0 0 32px rgba(0, 0, 0, 0.4), 0 0 4px 2px rgba(0, 0, 0, 0.15); }
+.tab-row .selected {
+  border-bottom: 3px solid transparent; }
 
 .tab-row * {
   margin: 0; }
@@ -119,15 +107,30 @@ p.full-width {
   padding-left: 0; padding-right: 0;
   margin-left: 0; margin-right: 0; }
 
+/**** Colour ****/
+
 html {
-  background-color: white; }
+  background-color: #F3F3F3; }
 
 body {
+  background-color: #F3F3F3;
   color: #727272; }
 
-a { color: #b73621; }
+.excavation {
+  background-color: white;
+  border-color: #AFAFAF; }
 
-/** Typography **/
+.content {
+  background-color: white;
+  border-color: #AFAFAF; }
+
+.tab-row .selected {
+  border-color: #AFAFAF; }
+
+a {
+  color: #b73621; }
+
+/**** Typography ****/
 
 body { font-family: sans-serif; }
 
@@ -140,6 +143,10 @@ h2 {
   line-height: 24px;
   font-size: 22px;
   margin: 72px auto 30px auto; }
+
+.tab-row {
+  font-size: 16px;
+  text-transform: uppercase; }
   
 
 
