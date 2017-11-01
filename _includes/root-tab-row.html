@@ -1,0 +1,40 @@
+<div class="root-tab-row">
+
+{% if page.url contains "/estoronto/" %}
+
+  <div class="tab">
+    <p>Elizabeth Schindler</p>
+  </div>
+  <div class="recessed-tab-left">
+    <p><a href="/gwtoronto/index.html">Gerry Weber Toronto</a></p>
+  </div>
+  <div class="recessed-tab-right">
+    <p><a href="/gwburlington/index.html">Gerry Weber Burlington</a></p>
+  </div>
+
+{% elsif page.url contains "/gwtoronto/" %}
+
+<div class="recessed-tab-all">
+  <p><a href="/estoronto/index.html">Elizabeth Schindler</a></p>
+</div>
+<div class="tab">
+  <p>Gerry Weber Toronto</p>
+</div>
+<div class="recessed-tab-all">
+  <p><a href="/gwburlington/index.html">Gerry Weber Burlington</a></p>
+</div>
+
+{% elsif page.url contains "/gwburlington/" %}
+
+<div class="recessed-tab-left">
+  <p><a href="/estoronto/index.html">Elizabeth Schindler</a></p>
+</div>
+<div class="recessed-tab-right">
+  <p><a href="/gwtoronto/index.html">Gerry Weber Toronto</a></p>
+</div>
+<div class="tab">
+  <p>Gerry Weber Burlington</p>
+</div>
+{% endif %}
+
+</div>

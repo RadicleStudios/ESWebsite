@@ -1,0 +1,16 @@
+{% if include.name == "Home" %}
+  {% if page.url == "/estoronto/"
+     or page.url == "/gwtoronto/"
+     or page.url == "/gwburlington/" %}
+<div class="tab raised"><p>Home</p></div>
+  {% else %}
+<div class="tab"><p><a href="index.html">Home</a></p></div>
+  {% endif %}
+{% else %}
+  {% capture href %}{{ include.name | downcase }}.html{% endcapture %}
+  {% if page.url contains href %}
+<div class="tab raised"><p>{{ include.name }}</p></div>
+  {% else %}
+<div class="tab"><p><a href="{{ href }}">{{ include.name }}</a></p></div>
+  {% endif %}
+{% endif %}

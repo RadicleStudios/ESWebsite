@@ -1,31 +1,154 @@
-/* Layout */
+/** Layout **/
 
-body { max-width: 542px; box-sizing: border-box; margin: 24px auto; }
-body > header { padding: 72px 24px 24px 24px; }
-body > header h1 { margin: 0; }
-body > main   { padding: 24px; border-left: 1px solid rgba(0, 0, 0, 0); border-right: 1px solid rgba(0, 0, 0, 0); }
-body > footer { padding: 18px 18px 18px 18px; }
+body {
+  min-width: 240px; max-width: 540px;
+  margin: 0 auto;
+  box-sizing: border-box; }
 
-/* Colour */
+.excavation {
+  background: url(/assets/shadow-top.png) top repeat-x,
+              url(/assets/shadow-right.png) right repeat-y,
+              url(/assets/shadow-bottom.png) bottom repeat-x,
+              url(/assets/shadow-left.png) left repeat-y #F7F7F7; }
 
-body { background-color: white; color: #727272; }
-body > main { background-color: white; border-color: rgba(0, 0, 0, 0.25); }
-body > header { background: center / 64px url("/assets/damask-pattern-a.png"); box-shadow: inset 0 0 32px 0px rgba(0, 0, 0, 0.05), inset 0 0 4px 0 rgba(0, 0, 0, 0.25); }
-body > footer { background: center / 64px url("/assets/damask-pattern-a.png"); box-shadow: inset 0 0 32px 0px rgba(0, 0, 0, 0.05), inset 0 0 4px 0 rgba(0, 0, 0, 0.25); }
+.content {
+  padding: 1px 0;
+  background-color: white;
+  box-shadow: 0 0 32px rgba(0, 0, 0, 0.5), 0 0 4px 2px rgba(0, 0, 0, 0.2); }
+
+body footer {
+  padding: 18px 18px 18px 18px; }
+
+/** The root-level tabs **/
+
+.root-tab-row {
+  display: table;
+  width: 100%; }
+
+.root-tab-row .tab {
+  display: table-cell;
+  text-align: center;
+  padding: 4px 0 4px 0; }
+
+.root-tab-row .recessed-tab-left {
+  display: table-cell;
+  background: url(/assets/shadow-top.png) top repeat-x,
+              url(/assets/shadow-bottom.png) bottom repeat-x,
+              url(/assets/shadow-left.png) left repeat-y transparent; }
+
+.root-tab-row .recessed-tab-middle {
+  display: table-cell;
+  background: url(/assets/shadow-top.png) top repeat-x,
+              url(/assets/shadow-bottom.png) bottom repeat-x transparent; }
+
+.root-tab-row .recessed-tab-right {
+  display: table-cell;
+  background: url(/assets/shadow-top.png) top repeat-x,
+              url(/assets/shadow-right.png) right repeat-y,
+              url(/assets/shadow-bottom.png) bottom repeat-x transparent; }
+
+.root-tab-row .recessed-tab-all {
+  display: table-cell;
+  background: url(/assets/shadow-top.png) top repeat-x,
+              url(/assets/shadow-right.png) right repeat-y,
+              url(/assets/shadow-bottom.png) bottom repeat-x,
+              url(/assets/shadow-left.png) left repeat-y transparent; }
+
+.root-tab-row * {
+  margin: 0; }
+
+/** The main tabs **/
+
+.tab-row {
+  padding-top: 32px;
+  margin-top: -32px;
+  margin-left: -12px; margin-right: -12px;
+  overflow: hidden; }
+
+.tab-row .tab {
+  display: inline-block;
+  padding: 0 4px 0 4px; }
+
+.tab-row .raised{
+  background-color: white;
+  box-shadow: 0 0 32px rgba(0, 0, 0, 0.4), 0 0 4px 2px rgba(0, 0, 0, 0.15); }
+
+.tab-row * {
+  margin: 0; }
+
+/** The hours table **/
+
+.hours-table-container {
+  padding: 24px 20px 0 20px; }
+
+.hours-table {
+  display: table;
+  width: 100%;
+  border-spacing: 4px;
+  table-layout: fixed; }
+
+.hours-table .row {
+  display: table-row; }
+
+.hours-table .row .hours {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  height: 120px;
+  line-height: 24px;
+  font-size: 18px; }
+
+.hours-table .row .weekend {
+  background-color: rgba(0, 0, 0, 0.09); }
+
+.hours-table .row .weekday {
+  background-color: rgba(0, 0, 0, 0.04); }
+
+.hours-table .row .day {
+  display: table-cell;
+  text-align: center;
+  line-height: 24px;
+  font-size: 16px; }
+
+/** --- **/
+
+img.full-width {
+  width: 100%; }
+
+p.full-width {
+  padding-left: 0; padding-right: 0;
+  margin-left: 0; margin-right: 0; }
+
+html {
+  background-color: white; }
+
+body {
+  color: #727272; }
+
 a { color: #b73621; }
 
-/* Typography */
+/** Typography **/
 
 body { font-family: sans-serif; }
+
+p {
+  line-height: 24px;
+  font-size: 16px;
+  margin: 18px 24px; }
+
+h2 {
+  line-height: 24px;
+  font-size: 22px;
+  margin: 72px auto 30px auto; }
+  
+
 
 p, td, blockquote, ol, ul, li, h1, h2, h3 { line-height: 24px; }
 p, td, blockquote, ol, ul, li, h3 { font-size: 16px; }
 h1 { font-size: 21px; }
 h2 { font-size: 16px; text-transform: uppercase; text-align: center; }
 h3 { font-weight: bold; }
-p, blockquote, ol, ul, h3 { margin: 24px 0; }
 h1 { margin: 120px 0 48px 0; }
-h2 { margin: 24px 0; }
 h3 { margin: 24px 0 -24px 0; }
 
 em, i { font-style: italic; }
@@ -33,58 +156,44 @@ strong, b { font-weight: bold; }
 a { text-decoration: none; }
 
 p { line-height: 24px; font-size: 16px; }
-body > footer p { line-height: 18px; font-size: 12px; margin: 18px 0 0 0; }
+body footer p { line-height: 18px; font-size: 12px; margin: 18px 0 0 0; }
 
-/* Misc */
+/** Misc **/
 
 body { line-height: 0; font-size: 0; }
 html { -webkit-text-size-adjust: 100%; /* What is this for?---I forgot. */ }
 
-[gallery] { margin-left: -24px; margin-right: -24px; text-align: center; }
-[gallery] [thumbnail] { display: inline-block; width: 92px; opacity: 0.8; margin: 4px; }
+/** The gallery **/
 
-iframe[special-map] { margin-left: -25px; margin-right: -24px; }
+[gallery] {
+  min-height: 810px;
+  text-align: center; }
+
+[gallery] [thumbnail] {
+  display: inline-block;
+  width: 92px;
+  opacity: 0.8;
+  margin: 4px; }
+
+
 [center-aligned] { text-align: center; }
 [with-double-height-margins] { margin-top: 48px; margin-bottom: 48px; }
 [without-top-margin] { margin-top: 0; }
 [without-vertical-margins] { margin-top: 0; margin-bottom: 0; }
 [horizontally-centered] { margin-left: auto; margin-right: auto; }
 
-
-p {
-  line-height: 24px;
-  font-size: 16px; }
-  p .sc {
-    font-size: 14px;
-    text-transform: uppercase; }
+hr {
+  border: 0; border-bottom: 1px solid #AFAFAF; }
 
 td {
   line-height: 24px;
   font-size: 16px; }
-  td .sc {
-    font-size: 14px;
-    text-transform: uppercase; }
 
 li {
   line-height: 24px;
   font-size: 16px;
   margin: 0; }
-  li .sc {
-    font-size: 14px;
-    text-transform: uppercase; }
 
-body > header {
+body header {
   text-align: center;
 }
-    
-  body > header nav {
-    line-height: 23px;
-    font-size: 15px;
-    text-transform: uppercase; }
-    
-  body > header nav a, body > header nav #selected {
-    margin: 0 6px; }
-    
-  body > header nav #selected {
-    color: #727272;
-    border-bottom: 4px solid #b7b7b7; }

@@ -3,59 +3,41 @@
 <!DOCTYPE html>
 <html>
   <head>
+    {% include title.html %}
     <title>Elizabeth Schindler</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="reset.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="/reset.css">
+    <link rel="stylesheet" type="text/css" href="/style.css">
     <script type="text/javascript" src="/gsap--tween-lite.js"></script> <!-- TODO: Move this to be within `gallery.js`. -->
     <script type="text/javascript" src="/gsap--css-plugin.js"></script> <!-- TODO: Move this to be within `gallery.js`. -->
     <script type="text/javascript" src="/gallery.js"></script>
   </head>
 
   <body>
+    <div class="excavation">
     <header>
-      <h1 style="margin-bottom: 24px">
-        <a href="/">
-          <img src="/assets/escouture.svg" alt="Elizabeth Schindler" style="width: 75%;">
-        </a>
-      </h1>
-      <nav>
-        {% if page.url == "/index.html" or page.url == "/" %}
-          <span id="selected">Welcome</span>            
-        {% else %}
-          <a href="/">Welcome</a>
-        {% endif %}
-      
-        {% if page.url == "/lookbook.html" %}
-          <span id="selected">Lookbook</span>
-        {% else %}
-          <a href="/lookbook.html">Lookbook</a>
-        {% endif %}
-      
-        {% if page.url == "/locations.html" %}
-          <span id="selected">Location</span>
-        {% else %}
-          <a href="/location.html">Location</a>
-        {% endif %}
-      
-        {% if page.url == "/hours.html" %}
-          <span id="selected">Hours</span>
-        {% else %}
-          <a href="/hours.html">Hours</a>
-        {% endif %}
-      
-        {% if page.url == "/contact.html" %}
-          <span id="selected">Contact</span>
-        {% else %}
-          <a href="/contact.html">Contact</a>
-        {% endif %}
-      </nav>
+
+      <!-- The 'root' tabs -->
+      {% include root-tab-row.html %}
+
+      <!-- The logo -->
+      {% include logo.html %}
+
+      <!-- The tabs for the main navigation -->
+      <div class="tab-row">
+        {% include tab.html name="Home" %}
+        {% include tab.html name="Collections" %}
+        {% include tab.html name="Location" %}
+        {% include tab.html name="Hours" %}
+        {% include tab.html name="Contact" %}
+      </div>
+
     </header>
 
-    <main>
+    <div class="content">
       {{ content }}
-    </main>
+    </div>
 
     <footer>
       <p without-top-margin>
@@ -64,5 +46,6 @@
         Site feedback is welcomed; please email <a href="mailto:raphael@radicle.io">raphael@radicle.io</a>.
       </p>
     </footer>
+    </div>
   </body>
 </html>
