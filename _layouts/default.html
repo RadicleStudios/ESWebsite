@@ -9,9 +9,6 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="/reset.css">
     <link rel="stylesheet" type="text/css" href="/style.css">
-    <script type="text/javascript" src="/gsap--tween-lite.js"></script> <!-- TODO: Move this to be within `gallery.js`. -->
-    <script type="text/javascript" src="/gsap--css-plugin.js"></script> <!-- TODO: Move this to be within `gallery.js`. -->
-    <script type="text/javascript" src="/gallery.js"></script>
   </head>
 
   <body class="excavation">
@@ -34,9 +31,9 @@
 
     </header>
 
-    <div class="content">
+    <main>
       {{ content }}
-    </div>
+    </main>
 
     <footer>
       <p without-top-margin>
@@ -45,6 +42,11 @@
         Site feedback is welcomed; please email <a href="mailto:raphael@radicle.io">raphael@radicle.io</a>.
       </p>
     </footer>
-    </div>
+
+    <script type="text/javascript" src="/gsap--tween-lite.js"></script>
+    <script type="text/javascript" src="/gsap--css-plugin.js"></script>
+    <script type="text/javascript" src="/gsap--scroll-to-plugin.js"></script>
+    <script type="text/javascript" src="/gallery.js"></script>
+
   </body>
 </html>

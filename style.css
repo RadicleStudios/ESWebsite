@@ -8,13 +8,12 @@ body {
 .excavation {
   border: 1px solid transparent; }
 
-.content {
-  padding: 1px 0;
+main, section {
   border-top: 1px solid transparent; border-bottom: 1px solid transparent; }
 
 body footer { padding: 18px 18px 18px 18px; }
 
-/** The root-level tabs **/
+/**** The root-level tabs ****/
 
 .root-tab-row {
   display: table;
@@ -52,19 +51,19 @@ body footer { padding: 18px 18px 18px 18px; }
 .root-tab-row * {
   margin: 0; }
 
-/** The main tabs **/
+/**** The main tabs ****/
 
 .tab-row .tab {
   display: inline-block;
   margin: 0 4px; }
 
 .tab-row .selected {
-  border-bottom: 3px solid transparent; }
+  border-bottom: 3px solid #AFAFAF; }
 
 .tab-row * {
   margin: 0; }
 
-/** The hours table **/
+/**** The hours table ****/
 
 .hours-table-container {
   padding: 24px 20px 0 20px; }
@@ -98,7 +97,7 @@ body footer { padding: 18px 18px 18px 18px; }
   line-height: 24px;
   font-size: 16px; }
 
-/** --- **/
+/**** --- ****/
 
 img.full-width {
   width: 100%; }
@@ -120,11 +119,8 @@ body {
   background-color: white;
   border-color: #AFAFAF; }
 
-.content {
+main {
   background-color: white;
-  border-color: #AFAFAF; }
-
-.tab-row .selected {
   border-color: #AFAFAF; }
 
 a {
@@ -134,9 +130,11 @@ a {
 
 body { font-family: sans-serif; }
 
-p {
+p, nav, td {
   line-height: 24px;
-  font-size: 16px;
+  font-size: 16px; }
+
+p {
   margin: 18px 24px; }
 
 h2 {
@@ -148,7 +146,6 @@ h2 {
   font-size: 16px;
   text-transform: uppercase; }
   
-
 
 p, td, blockquote, ol, ul, li, h1, h2, h3 { line-height: 24px; }
 p, td, blockquote, ol, ul, li, h3 { font-size: 16px; }
@@ -165,23 +162,50 @@ a { text-decoration: none; }
 p { line-height: 24px; font-size: 16px; }
 body footer p { line-height: 18px; font-size: 12px; margin: 18px 0 0 0; }
 
-/** Misc **/
+/**** Misc ****/
 
 body { line-height: 0; font-size: 0; }
 html { -webkit-text-size-adjust: 100%; /* What is this for?---I forgot. */ }
 
-/** The gallery **/
+/**** The gallery ****/
 
-[gallery] {
-  min-height: 810px;
+.gallery-menu-container {
   text-align: center; }
 
-[gallery] [thumbnail] {
+.gallery-menu {
   display: inline-block;
-  width: 92px;
-  opacity: 0.8;
-  margin: 4px; }
+  margin-top: 72px; }
 
+.gallery-menu a {
+  cursor: pointer;
+  padding: 2px;
+  border-bottom: 2px solid transparent; }
+
+.gallery-menu a.selected {
+  cursor: auto;
+  color: #727272;
+  border-color: #AFAFAF; }
+
+.container-container {
+  position: relative;
+  overflow: hidden; }
+
+.gallery {
+  display: inline-block; }
+
+.gallery .row {
+  display: block; }
+
+.gallery .row img {
+  display: inline-block;
+  width: 25%;
+  opacity: 0.8; }
+
+.overlay {
+  position: fixed;
+  width: 100%; height: 100%; left: 0; top: 0;
+  background-color: black;
+  opacity: 0; }
 
 [center-aligned] { text-align: center; }
 [with-double-height-margins] { margin-top: 48px; margin-bottom: 48px; }

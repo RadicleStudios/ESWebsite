@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<div style="margin-top:-1px;">
+<div>
   <img class="full-width" src="/assets/feature-image.jpg">
 </div>
 
