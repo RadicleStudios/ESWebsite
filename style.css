@@ -66,6 +66,55 @@ body footer { padding: 18px 18px 18px 18px; }
 .tab-row * {
   margin: 0; }
 
+/**** The gallery ****/
+
+.gallery-menu-container {
+  text-align: center; }
+
+.gallery-menu {
+  display: inline-block;
+  margin-top: 72px; }
+
+.gallery-menu a {
+  cursor: pointer;
+  padding: 2px;
+  border-bottom: 2px solid transparent; }
+
+.gallery-menu a.selected {
+  cursor: auto;
+  color: #727272;
+  border-color: #AFAFAF; }
+
+.container-container {
+  position: relative;
+  overflow: hidden; }
+
+.gallery {
+  display: inline-block;
+  width: 100%; }
+
+.gallery-table {
+  display: table;
+  width: 100%;
+  border-spacing: 4px;
+  table-layout: fixed; }
+
+.gallery-table > .row {
+  display: table-row; }
+
+.gallery-table > .row > div {
+  display: table-cell; }
+
+.gallery-table > .row > div > img {
+  width: 100%;
+  opacity: 0.8; }
+
+.overlay {
+  position: fixed;
+  width: 100%; height: 100%; left: 0; top: 0;
+  background-color: black;
+  opacity: 0; }
+
 /**** The hours table ****/
 
 .hours-table-container {
@@ -77,10 +126,10 @@ body footer { padding: 18px 18px 18px 18px; }
   border-spacing: 4px;
   table-layout: fixed; }
 
-.hours-table .row {
+.hours-table > .row {
   display: table-row; }
 
-.hours-table .row .hours {
+.hours-table > .row .hours {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
@@ -88,13 +137,13 @@ body footer { padding: 18px 18px 18px 18px; }
   line-height: 24px;
   font-size: 18px; }
 
-.hours-table .row .weekend {
+.hours-table > .row .weekend {
   background-color: rgba(0, 0, 0, 0.09); }
 
-.hours-table .row .weekday {
+.hours-table > .row .weekday {
   background-color: rgba(0, 0, 0, 0.04); }
 
-.hours-table .row .day {
+.hours-table > .row .day {
   display: table-cell;
   text-align: center;
   line-height: 24px;
@@ -177,46 +226,6 @@ body footer p { line-height: 18px; font-size: 12px; margin: 18px 0 0 0; }
 
 body { line-height: 0; font-size: 0; }
 html { -webkit-text-size-adjust: 100%; /* What is this for?---I forgot. */ }
-
-/**** The gallery ****/
-
-.gallery-menu-container {
-  text-align: center; }
-
-.gallery-menu {
-  display: inline-block;
-  margin-top: 72px; }
-
-.gallery-menu a {
-  cursor: pointer;
-  padding: 2px;
-  border-bottom: 2px solid transparent; }
-
-.gallery-menu a.selected {
-  cursor: auto;
-  color: #727272;
-  border-color: #AFAFAF; }
-
-.container-container {
-  position: relative;
-  overflow: hidden; }
-
-.gallery {
-  display: inline-block; }
-
-.gallery .row {
-  display: block; }
-
-.gallery .row img {
-  display: inline-block;
-  width: 25%;
-  opacity: 0.8; }
-
-.overlay {
-  position: fixed;
-  width: 100%; height: 100%; left: 0; top: 0;
-  background-color: black;
-  opacity: 0; }
 
 [center-aligned] { text-align: center; }
 [with-double-height-margins] { margin-top: 48px; margin-bottom: 48px; }
