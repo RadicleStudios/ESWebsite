@@ -11,6 +11,9 @@ body {
 main, section {
   border-top: 1px solid transparent; border-bottom: 1px solid transparent; }
 
+main {
+  padding: 24px 0; }
+
 body footer { padding: 18px 18px 18px 18px; }
 
 /**** The root-level tabs ****/
@@ -66,7 +69,7 @@ body footer { padding: 18px 18px 18px 18px; }
 /**** The hours table ****/
 
 .hours-table-container {
-  padding: 24px 20px 0 20px; }
+  padding: 24px 0 0 0; }
 
 .hours-table {
   display: table;
@@ -109,14 +112,14 @@ p.full-width {
 /**** Colour ****/
 
 html {
-  background-color: #F3F3F3; }
+  background-color: #EFEFEF; }
 
 body {
-  background-color: #F3F3F3;
+  background-color: #EFEFEF;
   color: #727272; }
 
 .excavation {
-  background-color: white;
+  background-color: #F3F3F3;
   border-color: #AFAFAF; }
 
 main {
@@ -142,8 +145,16 @@ h2 {
   font-size: 22px;
   margin: 72px auto 30px auto; }
 
-.tab-row {
-  font-size: 16px;
+.root-tab-row p {
+  font-size: 14px;
+  line-height: 14px;
+  padding: 4px;
+  letter-spacing: -0.5px;
+  text-transform: uppercase; }
+
+.tab-row p {
+  font-size: 14px;
+  letter-spacing: -0.5px;
   text-transform: uppercase; }
   
 

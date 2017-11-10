@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<div class="hours-table-container" style="padding: 24px 22px 0 22px;">
+<div class="hours-table-container">
   <div class="hours-table">
     <div class="row">
       <div class="hours weekend">&mdash;</div>

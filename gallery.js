@@ -27,6 +27,14 @@ function revealGallery (gallery, menu) {
   TweenLite.to(outerContainer, 0.5, {scrollTo:{y:0, x:offset}});
 }
 
+function arrestScrolling() {
+  document.body.style.overflow = "hidden";
+}
+
+function allowScrolling() {
+  document.body.style.overflow = "";
+}
+
 function prepareGallery (gallery) {
 
   // Loop through the contained images (ie the thumbnails; and all contained
@@ -36,19 +44,11 @@ function prepareGallery (gallery) {
     // Install the onclick action
     thumbnail.onclick = function () {
 
-      // Arrest scrolling
-      document.documentElement.style.overflow = "hidden";
-
-      var thumbnailRect = thumbnail.getBoundingClientRect();
-      var thumbnailWidth = thumbnailRect.width;
-      var thumbnailHeight = thumbnailRect.height;
-      var thumbnailTop = thumbnailRect.top;
-      var thumbnailLeft = thumbnailRect.left
+      arrestScrolling();
 
       var dismissingFunction = function () {
 
-        // Allow scrolling
-        document.documentElement.style.overflow = "scroll";
+        allowScrolling();
 
         // Make the image unclickable.
         image.style.pointerEvents = "none";
@@ -56,16 +56,9 @@ function prepareGallery (gallery) {
         // Animate the opacity (removing the temporary elements on completion).
         TweenLite.to(overlay,      0.2, {opacity:0, onComplete:function(){
           overlay.parentNode.removeChild(overlay) }});
-        TweenLite.to(imageBacking, 1.0, {opacity:0, onComplete:function(){
-          imageBacking.parentNode.removeChild(imageBacking) }});
         TweenLite.to(image,        0.2, {opacity:0, onComplete:function(){
           image.parentNode.removeChild(image) }});
 
-        // Animate the dimensions.
-        var vars = {width:thumbnailWidth, height:thumbnailHeight,
-          left:thumbnailLeft, top:thumbnailTop};
-        TweenLite.to(imageBacking, 0.4, vars);
-        TweenLite.to(image,        0.4, vars);
       }
 
       // Produce a full screen overlay.
@@ -73,27 +66,12 @@ function prepareGallery (gallery) {
       overlay.className = "overlay";
       overlay.style.pointerEvents = "none";
       overlay.onclick = dismissingFunction;
-      document.documentElement.appendChild(overlay);
-
-      // Produce the image view's backing.
-      var imageBacking = document.createElement("div");
-      imageBacking.style.cssText =
-        "position:fixed; background-color:#000; opacity:0.5";
-      imageBacking.style.pointerEvents = "none";
-      imageBacking.style.width = thumbnailWidth + "px";
-      imageBacking.style.height = thumbnailHeight + "px";
-      imageBacking.style.left = thumbnailLeft + "px";
-      imageBacking.style.top = thumbnailTop + "px";
-      document.documentElement.appendChild(imageBacking);
+      document.body.appendChild(overlay);
 
       // Produce the image view.
       var image = document.createElement("img"); // Create a new image element.
       image.style.cssText = "position:fixed; opacity:0; z-index:1";
       image.src = thumbnail.getAttribute('src').replace('-thumbnails/', '/');
-      image.style.width = thumbnailWidth + "px";
-      image.style.height = thumbnailHeight + "px";
-      image.style.left = thumbnailLeft + "px";
-      image.style.top = thumbnailTop + "px";
       image.onclick = dismissingFunction;
       document.documentElement.appendChild(image);
 
@@ -120,18 +98,12 @@ function prepareGallery (gallery) {
           imageLeft = (screenWidth - imageWidth) / 2;
           imageTop = 0;
         }
+        TweenLite.set(image, {
+          width:imageWidth, height:imageHeight, left:imageLeft, top:imageTop });
 
         // Animate the opacity.
-        TweenLite.to(overlay,      0.2, {opacity:0.6});
-        TweenLite.to(imageBacking, 0.2, {opacity:0.8});
-        TweenLite.to(image,        0.2, {opacity:1.0});
-
-        // Animate the dimensions.
-        var onImageGrow
-        TweenLite.to(imageBacking, 0.2,
-          {width:imageWidth, height:imageHeight, left:imageLeft, top:imageTop});
-        TweenLite.to(image,        0.2,
-          {width:imageWidth, height:imageHeight, left:imageLeft, top:imageTop});
+        TweenLite.to(overlay, 0.2, {opacity:0.6});
+        TweenLite.to(image,   0.2, {opacity:1.0});
       }
 
     }

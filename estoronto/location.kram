@@ -2,7 +2,9 @@
 layout: default
 ---
 
-<div style="margin:-1px 0;">
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1440.828205998481!2d-79.36211347083275!3d43.75923125620489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2dfd56d2da11f3f3!2sElizabeth+Schindler!5e0!3m2!1sen!2sus!4v1509201987501" width="540" height="540" frameborder="0" style="border:0" allowfullscreen></iframe>
-</div>
+1987 Leslie St\\
+Toronto ON &nbsp;M3B 2M3
+{: style="text-align: center;" }
 
+[Open in Google Maps](https://goo.gl/maps/D24DYTFG7QS2)
+{: style="text-align: center;" }
