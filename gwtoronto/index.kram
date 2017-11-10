@@ -2,8 +2,8 @@
 layout: default
 ---
 
-<div style="margin-top:-1px;">
-  <img class="full-width" src="/assets/feature-image.jpg">
+<div class="full-width-img">
+  <img src="/assets/feature-image.jpg">
 </div>
 
 The first official House of Gerry Weber in Toronto. Providing smart-casual,

@@ -151,7 +151,10 @@ body footer { padding: 18px 18px 18px 18px; }
 
 /**** --- ****/
 
-img.full-width {
+div.full-width-img {
+  margin: 4px; }
+
+div.full-width-img img {
   width: 100%; }
 
 p.full-width {

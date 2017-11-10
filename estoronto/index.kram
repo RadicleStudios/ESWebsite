@@ -2,8 +2,8 @@
 layout: default
 ---
 
-<div>
-  <img class="full-width" src="/assets/feature-image.jpg">
+<div class="full-width-img">
+  <img src="/assets/feature-image.jpg">
 </div>
 
 A fine selection of European fashions<br>
