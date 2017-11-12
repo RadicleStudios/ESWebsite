@@ -192,6 +192,10 @@ p, nav, td {
 p {
   margin: 18px 24px; }
 
+p.featured {
+  margin: 36px 48px;
+  text-align: center; }
+
 h2 {
   line-height: 24px;
   font-size: 22px;
