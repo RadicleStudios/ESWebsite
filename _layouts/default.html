@@ -1,4 +1,5 @@
 ---
+stuff: borf
 ---
 <!DOCTYPE html>
 <html>
@@ -8,32 +9,43 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="/reset.css">
     <link rel="stylesheet" type="text/css" href="/style.css">
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110939447-1"></script>
+    <script async
+          src="https://www.googletagmanager.com/gtag/js?id=UA-110939447-1">
+    </script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'UA-110939447-1');
     </script>
+
   </head>
 
-  <body class="excavation">
-    <header>
+  <body>
 
-      <!-- The 'root' tabs -->
-      {% include root-tab-row.html %}
+    <div class="tab-row">
+      {% include tab.html
+            href="/estoronto/" name="Elizabeth<br>Schindler" %}
+      {% include tab.html
+            href="/gwtoronto/" name="Gerry Weber<br>Toronto" %}
+      {% include tab.html
+            href="/gwburlington/" name="Gerry Weber<br>Burlington" %}
+    </div>
+
+    <header>
 
       <!-- The logo -->
       {% include logo.html %}
 
       <!-- The tabs for the main navigation -->
       <div class="tab-row">
-        {% include tab.html name="Home" %}
-        {% include tab.html name="Collections" %}
-        {% include tab.html name="Location" %}
-        {% include tab.html name="Hours" %}
-        {% include tab.html name="Contact" %}
+        {% include tab.html href="index.html" name="Home" %}
+        {% include tab.html href="collections.html" name="Collections" %}
+        {% include tab.html href="location.html" name="Location" %}
+        {% include tab.html href="hours.html" name="Hours" %}
+        {% include tab.html href="contact.html" name ="Contact" %}
       </div>
 
     </header>

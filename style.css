@@ -1,12 +1,9 @@
-/**** Layout ****/
+/* Layout */
 
 body {
   min-width: 240px; max-width: 542px;
   margin: 24px auto;
   box-sizing: border-box; }
-
-.excavation {
-  border: 1px solid transparent; }
 
 main, section {
   border-top: 1px solid transparent; border-bottom: 1px solid transparent; }
@@ -14,59 +11,12 @@ main, section {
 main {
   padding: 24px 0; }
 
-body footer { padding: 18px 18px 18px 18px; }
+body footer { padding: 18px; }
 
-/**** The root-level tabs ****/
 
-.root-tab-row {
-  display: table;
-  width: 100%; }
 
-.root-tab-row .tab {
-  display: table-cell;
-  text-align: center;
-  padding: 4px 0 4px 0; }
+/* The gallery */
 
-.root-tab-row .recessed-tab-left {
-  display: table-cell;
-  background: url(/assets/shadow-top.png) top repeat-x,
-              url(/assets/shadow-bottom.png) bottom repeat-x,
-              url(/assets/shadow-left.png) left repeat-y transparent; }
-
-.root-tab-row .recessed-tab-middle {
-  display: table-cell;
-  background: url(/assets/shadow-top.png) top repeat-x,
-              url(/assets/shadow-bottom.png) bottom repeat-x transparent; }
-
-.root-tab-row .recessed-tab-right {
-  display: table-cell;
-  background: url(/assets/shadow-top.png) top repeat-x,
-              url(/assets/shadow-right.png) right repeat-y,
-              url(/assets/shadow-bottom.png) bottom repeat-x transparent; }
-
-.root-tab-row .recessed-tab-all {
-  display: table-cell;
-  background: url(/assets/shadow-top.png) top repeat-x,
-              url(/assets/shadow-right.png) right repeat-y,
-              url(/assets/shadow-bottom.png) bottom repeat-x,
-              url(/assets/shadow-left.png) left repeat-y transparent; }
-
-.root-tab-row * {
-  margin: 0; }
-
-/**** The main tabs ****/
-
-.tab-row .tab {
-  display: inline-block;
-  margin: 0 4px; }
-
-.tab-row .selected {
-  border-bottom: 3px solid #AFAFAF; }
-
-.tab-row * {
-  margin: 0; }
-
-/**** The gallery ****/
 
 .gallery-menu-container {
   text-align: center; }
@@ -115,7 +65,7 @@ body footer { padding: 18px 18px 18px 18px; }
   background-color: black;
   opacity: 0; }
 
-/**** The hours table ****/
+/* The hours table */
 
 .hours-table-container {
   padding: 24px 0 0 0; }
@@ -149,7 +99,7 @@ body footer { padding: 18px 18px 18px 18px; }
   line-height: 24px;
   font-size: 16px; }
 
-/**** --- ****/
+/* --- */
 
 div.full-width-img {
   margin: 4px; }
@@ -161,7 +111,10 @@ p.full-width {
   padding-left: 0; padding-right: 0;
   margin-left: 0; margin-right: 0; }
 
-/**** Colour ****/
+
+
+/* Colour */
+
 
 html {
   background-color: #EFEFEF; }
@@ -170,22 +123,32 @@ body {
   background-color: #EFEFEF;
   color: #727272; }
 
-.excavation {
-  background-color: #F3F3F3;
-  border-color: #AFAFAF; }
+body > header {
+  border-top: 1px solid #afafaf;
+  border-left: 1px solid #afafaf;
+  border-right: 1px solid #afafaf; }
 
-main {
+body > main {
   background-color: white;
-  border-color: #AFAFAF; }
+  border: 1px solid #afafaf; }
+
+body > footer {
+  border-left: 1px solid #afafaf;
+  border-right: 1px solid #afafaf;
+  border-bottom: 1px solid #afafaf; }
 
 a {
   color: #b73621; }
 
-/**** Typography ****/
 
+
+/* Typography */
+
+
+body { line-height: 0; font-size: 0; }
 body { font-family: sans-serif; }
 
-p, nav, td {
+p, nav, td, .tab {
   line-height: 24px;
   font-size: 16px; }
 
@@ -208,10 +171,6 @@ h2 {
   letter-spacing: -0.5px;
   text-transform: uppercase; }
 
-.tab-row p {
-  font-size: 14px;
-  letter-spacing: -0.5px;
-  text-transform: uppercase; }
   
 
 p, td, blockquote, ol, ul, li, h1, h2, h3 { line-height: 24px; }
@@ -229,9 +188,30 @@ a { text-decoration: none; }
 p { line-height: 24px; font-size: 16px; }
 body footer p { line-height: 18px; font-size: 12px; margin: 18px 0 0 0; }
 
-/**** Misc ****/
 
-body { line-height: 0; font-size: 0; }
+
+/* Misc */
+
+
+
+.tab-row * {
+  margin: 0; }
+
+.tab-row {
+  display: block;
+  text-align: center; }
+
+.tab-row .tab {
+  display: inline-block;
+  margin: 0 4px;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: -0.5px;
+  text-transform: uppercase; }
+
+.tab-row .selected {
+  border-bottom: 3px solid #AFAFAF; }
+
 html { -webkit-text-size-adjust: 100%; /* What is this for?---I forgot. */ }
 
 [center-aligned] { text-align: center; }
@@ -253,5 +233,4 @@ li {
   margin: 0; }
 
 body header {
-  text-align: center;
-}
+  text-align: center; }

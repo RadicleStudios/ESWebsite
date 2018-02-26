@@ -1,16 +1,18 @@
-{% if include.name == "Home" %}
-  {% if page.url == "/estoronto/"
-     or page.url == "/gwtoronto/"
-     or page.url == "/gwburlington/" %}
-<div class="tab selected"><p>Home</p></div>
-  {% else %}
-<div class="tab"><p><a href="index.html">Home</a></p></div>
-  {% endif %}
+{% comment %}
+  Parameters:
+  - href
+  - name
+{% endcomment %}
+
+{% capture char %}{{ page.url | slice: -1 }}{% endcapture %}
+{% if char == '/' %}
+  {% capture url %}{{ page.url }}index.html{% endcapture %}
 {% else %}
-  {% capture href %}{{ include.name | downcase }}.html{% endcapture %}
-  {% if page.url contains href %}
-<div class="tab selected"><p>{{ include.name }}</p></div>
-  {% else %}
-<div class="tab"><p><a href="{{ href }}">{{ include.name }}</a></p></div>
-  {% endif %}
+  {% assign url = page.url %}
+{% endif %}
+
+{% if url contains include.href %}
+  <div class="tab selected">{{ include.name }}</div>
+{% else %}
+  <div class="tab"><a href="{{ include.href }}">{{ include.name }}</a></div>
 {% endif %}
