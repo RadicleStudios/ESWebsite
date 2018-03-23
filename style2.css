@@ -1,0 +1,31 @@
+/* Layout */
+
+
+* { box-sizing: border-box; }
+
+
+/* Colour */
+
+
+body { background-color: #ffffff; color: #717171 }
+a { color: #b73621 }
+
+
+
+/* Typography */
+
+
+body { line-height: 24px; font-size: 17px }
+body { font-family: sans-serif; }
+
+em, i { font-style: italic; }
+strong, b { font-weight: bold; }
+a { text-decoration: none; }
+
+
+
+
+/* Misc */
+
+
+
